@@ -1,0 +1,27 @@
+poll = read.csv("AnonymityPoll.csv")
+#Problem 1
+str(poll)
+summary(poll)
+table(poll$Smartphone)
+table(poll$State,poll$Region)
+#problem 2
+table(poll$Smartphone,poll$Internet.Use)
+summary(poll)
+limited = subset(poll,poll$Smartphone == 1 | poll$Internet.Use == 1 )
+str(limited)
+summary(limited)
+sum(limited$Info.On.Internet == 0)
+sum(limited$Info.On.Internet == 11)
+table(limited$Worry.About.Info, useNA = "always")
+table(limited$Anonymity.Possible)
+table(limited$Tried.Masking.Identity)
+table(limited$Privacy.Laws.Effective)
+
+#problem4
+hist(limited$Age)
+max(table(limited$Age, limited$Info.On.Internet))
+jitter(c(1, 2, 3))
+plot(jitter(limited$Age), jitter(limited$Info.On.Internet))
+tapply(limited$Info.On.Internet,limited$Smartphone,summary)
+tapply(limited$Tried.Masking.Identity,limited$Smartphone,sum,na.rm = T)
+tapply(limited$Tried.Masking.Identity,limited$Smartphone,table)
