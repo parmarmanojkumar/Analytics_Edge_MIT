@@ -3,7 +3,8 @@
 # Read in data
 baseball = read.csv("baseball.csv")
 str(baseball)
-
+#to check claim about 95 game claim
+plot(baseball$W, baseball$Year)
 # Subset to only include moneyball years
 moneyball = subset(baseball, Year < 2002)
 str(moneyball)
