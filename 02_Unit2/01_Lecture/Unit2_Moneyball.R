@@ -31,3 +31,9 @@ summary(RunsReg)
 
 RunsReg = lm(RS ~ OBP + SLG, data=moneyball)
 summary(RunsReg)
+
+teamRank = c(1,2,3,3,4,4,4,4,5,5)
+Win2012 = c(94,88,95,88,93,94,98,97,93,94)
+Win2013 = c(97,97,92,93,92,96,94,96,92,90)
+cor(teamRank,Win2012)
+cor(teamRank,Win2013)
