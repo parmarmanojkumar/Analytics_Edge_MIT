@@ -1,2 +1,2 @@
-# Analytics_Edge_MIT
-Coursework of MIT analytics Edge from ex
+# Analytics_Edge (MITx - edx)
+Coursework of MIT analytics Edge from edx
