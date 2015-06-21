@@ -110,3 +110,7 @@ specificity
 false.neg.error.rate
 false.pos.error.rate
 
+#ROCR
+ROCRpredTest = prediction(predictTest, qualityTest$PoorCare)
+auc = as.numeric(performance(ROCRpredTest,"auc")@y.values)
+auc
