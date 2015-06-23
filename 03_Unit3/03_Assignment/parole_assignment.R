@@ -17,3 +17,6 @@ train = subset(parole, split == TRUE)
 test = subset(parole, split == FALSE)
 
 #problem 4
+parolelm = glm(violator ~ ., data = train, family= "binomial")
+summary(parolelm)
+exp(1.61)
