@@ -10,6 +10,7 @@ str(Claims)
 
 # Percentage of patients in each cost bucket
 table(Claims$bucket2009)/nrow(Claims)
+prop.table(table(Claims$bucket2009))
 
 # Split the data
 library(caTools)
@@ -22,7 +23,9 @@ ClaimsTrain = subset(Claims, spl==TRUE)
 
 ClaimsTest = subset(Claims, spl==FALSE)
 
-
+#Quiz
+mean(ClaimsTrain$age)
+prop.table(table((ClaimsTrain$diabetes)))
 # VIDEO 7
 
 # Baseline method
@@ -40,7 +43,11 @@ as.matrix(table(ClaimsTest$bucket2009, ClaimsTest$bucket2008))*PenaltyMatrix
 
 sum(as.matrix(table(ClaimsTest$bucket2009, ClaimsTest$bucket2008))*PenaltyMatrix)/nrow(ClaimsTest)
 
-
+#Quiz
+q1 = prop.table(table(ClaimsTest$bucket2009))
+q2 = PenaltyMatrix[,1] * as.matrix(table(ClaimsTest$bucket2009))
+sum(PenaltyMatrix[,1] * as.matrix(q1))
+sum(q2)/nrow(ClaimsTest)
 # VIDEO 8
 
 # Load necessary libraries
