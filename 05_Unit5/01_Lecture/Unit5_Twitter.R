@@ -31,8 +31,8 @@ corpus = Corpus(VectorSource(tweets$Tweet))
 
 # Look at corpus
 corpus
-
-corpus[[1]]
+corpus = tm_map(corpus, PlainTextDocument)
+corpus[[1]]$content
 
 
 # Convert to lower-case
@@ -50,7 +50,7 @@ corpus = tm_map(corpus, PlainTextDocument)
 
 corpus = tm_map(corpus, removePunctuation)
 
-corpus[[1]]
+corpus[[1]]$content
 
 # Look at stop words 
 stopwords("english")[1:10]
@@ -59,13 +59,13 @@ stopwords("english")[1:10]
 
 corpus = tm_map(corpus, removeWords, c("apple", stopwords("english")))
 
-corpus[[1]]
+corpus[[1]]$content
 
 # Stem document 
 
 corpus = tm_map(corpus, stemDocument)
 
-corpus[[1]]
+corpus[[1]]$content
 
 
 
@@ -158,3 +158,7 @@ table(testSparse$Negative, predictRF)
 # Accuracy:
 (293+21)/(293+7+34+21)
 
+#quiz
+tweetLog = glm(Negative ~ . , data = trainSparse, family ="binomial")
+predictLog = predict(tweetLog, newdata = testSparse , type = "response")
+table(testSparse$Negative, predictLog > 0.5)
